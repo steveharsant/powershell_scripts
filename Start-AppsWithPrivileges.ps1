@@ -7,5 +7,5 @@ param ($startPath)
 $apps = Get-ChildItem -Path $startPath
 
 foreach ($app in $apps) {
-  Start-Process $app
+  Start-Process "$startPath\$($app.name)"
 }
