@@ -1,2 +1,3 @@
 .vscode/settings.json
 aws_2fa.ps1
+Set-AudioDeviceOutput.ps1.lnk

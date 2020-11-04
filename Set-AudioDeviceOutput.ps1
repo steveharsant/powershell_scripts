@@ -26,12 +26,16 @@ try {
   }
 
   # Set audio device and capture details about the now current device
-  # Save index as a system environment variable
+  # Save index as a user environment variable
   $result = Set-AudioDevice -Index $newIndex
-  [Environment]::SetEnvironmentVariable('AUDIO_DEVICE_INDEX', "$newIndex", "Machine")
+  [Environment]::SetEnvironmentVariable('AUDIO_DEVICE_INDEX', "$newIndex", "User")
 
   New-BurntToastNotification  -Text 'Audio device changed', "$($result.Name)"
 
   refreshenv
+  exit 0
 }
-catch { Write-Error $error[0] }
+catch {
+  Write-Error $error[0]
+  exit 1
+}
