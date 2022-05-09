@@ -2,7 +2,7 @@
 # This was created to have Windows Task Scheduler run this script on
 # startup and load a group of apps that need admin rights.
 
-param ($startPath)
+param ($startPath = '~/startup applications')
 
 $apps = Get-ChildItem -Path $startPath
 
